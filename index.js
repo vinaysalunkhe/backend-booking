@@ -6,6 +6,7 @@ import usersRoute from"./routes/users.js"
 import hotelsRoute from"./routes/hotels.js"
 import roomsRoute from"./routes/rooms.js"
 import cookieParser from "cookie-parser";
+import cors from "cors"
 const app = express()
 dotenv.config()
 
@@ -49,6 +50,13 @@ app.use((err,req,res,next)=>
     });
     
 })
+const corsConfig = {
+    origin: '',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+}
+app.use(cors(corsConfig))
+app.options("", cors(corsConfig))
 app.listen(8800,()=>{
     connect();
     console.log("connected to backend.")

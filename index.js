@@ -29,10 +29,7 @@ mongoose.connection.on("disconnected",()=>
 //middlewares
 app.use(cookieParser())
 app.use(express.json());
-app.get('/',function(req,res)
-{
-    res.send("hello world");
-});
+
 app.use('/api/auth',authRoute);
 app.use('/api/hotels',hotelsRoute);
 app.use('/api/rooms',roomsRoute);
